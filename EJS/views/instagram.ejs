@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("includes/head.ejs") %>
+
+<body >
+    <h2>This page belogns to @ <%= data.name %>
+    </h2>
+       <div>
+        <button class="buttons">Follow</button>
+        <button class="buttons">Message</button>
+       </div>
+    <p>
+        <%= data.followers %> <b>Followers</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <%= data.following %> <b>Following</b>
+    </p>
+
+    <hr> 
+
+    <% for (const post of data.posts) { %>
+        <img  src="<%=post.image%>" alt="someImage">
+        <p>
+            <%= post.likes %> <b>likes</b> &nbsp;&nbsp;&nbsp;&nbsp;
+                <%= post.comments %> <b>comments</b>
+        </p>
+        <% } %>
+
+        
+</body>
+<script src="/app.js"></script>
+</html>
