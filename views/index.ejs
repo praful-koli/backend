@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('includes/head.ejs') %>
+<body>
+    <h1>Quera posts</h1>
+    <% posts.forEach(post => { %>
+       <div class="post">
+     
+           <h3 class="user"><%= post.username%></h3>
+            <h4 class="content"><%= post.content %></h4>
+            <br><br><br>
+            <a href="http://localhost:8080/posts/<%= post.id %>">detail</a>
+            <a href="http://localhost:8080/posts/<%= post.id %>/edit">edit</a>
+            
+            <form action="/posts/<%= post.id%>?_method=DELETE" method="post">
+                <button id="dle">Deletet Post</button>
+            </form>
+           
+      
+       </div>
+    <% }) %>
+    <br><br>
+
+    <button><a href="http://localhost:8080/posts/new">Add Post</a> </button>
+</body>
+</html>
+
