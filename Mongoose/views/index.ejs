@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>All Chats</h2>
+    <form action="/chats/new" method="get">
+        <button>Add New</button>
+    </form>
+    <br>
+    <% chatData.forEach(chat=> { %>
+        <div class="chat">
+            <p>From : <i><%= chat.form %></i> </p>
+            <p>To : <i><%= chat.to %></i>   </p>
+            <p class="msg">Message: <%= chat.msg %> </p>
+            <span>
+                <p>Date : <%= chat.date.toLocaleDateString() %> Time : <%= chat.date.toLocaleTimeString() %>  </p>
+
+            </span>
+ 
+
+            <!-- <div>
+                <form action="/chats/ <% chat._id %> /edit" method="get">
+                    <button>Edit</button>
+                </form>
+            </div> -->
+            <div>
+                <span>
+                    <form action="/chats/ <%= chat._id %>/edit" method="get">
+                        <button>Edit</button>
+                    </form>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <form action="/chats/ <%= chat._id %>?_method=DELETE" method="post">
+                        <button>Delete</button>
+                    </form>
+                </span>
+            </div>
+            
+        </div>
+        <br><br>
+        
+        <% }) %>
+</body>
+
+</html>
